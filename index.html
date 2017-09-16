@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://semantic-ui.com/examples/sticky.html -->
+<html class="gr__semantic-ui_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Standard Meta -->
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<link rel="icon" type="image/png" href="./res/logo.png">
+
+<!-- Site Properties -->
+<title>How was Harvey?</title>
+
+<link rel="stylesheet" type="text/css" href="./res/reset.css">
+<link rel="stylesheet" type="text/css" href="./res/site.css">
+
+<link rel="stylesheet" type="text/css" href="./res/container.css">
+<link rel="stylesheet" type="text/css" href="./res/grid.css">
+<link rel="stylesheet" type="text/css" href="./res/header.css">
+<link rel="stylesheet" type="text/css" href="./res/image.css">
+<link rel="stylesheet" type="text/css" href="./res/menu.css">
+
+<link rel="stylesheet" type="text/css" href="./res/divider.css">
+<link rel="stylesheet" type="text/css" href="./res/list.css">
+<link rel="stylesheet" type="text/css" href="./res/segment.css">
+<link rel="stylesheet" type="text/css" href="./res/dropdown.css">
+<link rel="stylesheet" type="text/css" href="./res/icon.css">
+<link rel="stylesheet" type="text/css" href="./res/transition.css">
+
+<script src="./res/jquery.min.js"></script>
+<script src="./res/transition.js"></script>
+<script src="./res/dropdown.js"></script>
+<script src="./res/visibility.js"></script>
+<script>
+$(document)
+  .ready(function() {
+      // fix main menu to page on passing
+      $('.main.menu').visibility({
+type: 'fixed'
+});
+      $('.overlay').visibility({
+type: 'fixed',
+offset: 80
+});
+      // lazy load images
+      $('.image').visibility({
+type: 'image',
+transition: 'vertical flip in',
+duration: 500
+});
+      // show dropdown on hover
+      $('.main.menu  .ui.dropdown').dropdown({
+on: 'hover'
+});
+      })
+;
+</script>
+
+<style type="text/css">
+body {
+  background-color: #FFFFFF;
+}
+.main.container {
+  margin-top: 2em;
+}
+.main.menu {
+  margin-top: 4em;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  transition:
+  box-shadow 0.5s ease,
+  padding 0.5s ease
+  ;
+}
+.main.menu .item img.logo {
+  margin-right: 1.5em;
+}
+.overlay {
+  float: left;
+  margin: 0em 3em 1em 0em;
+}
+.overlay .menu {
+  position: relative;
+  left: 0;
+  transition: left 0.5s ease;
+}
+.main.menu.fixed {
+  background-color: #FFFFFF;
+  border: 1px solid #DDD;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+.overlay.fixed .menu {
+  left: 800px;
+}
+.text.container .left.floated.image {
+  margin: 2em 2em 2em -4em;
+}
+.text.container .right.floated.image {
+  margin: 2em -4em 2em 2em;
+}
+.ui.footer.segment {
+  margin: 5em 0em 0em;
+  padding: 5em 0em;
+}
+</style>
+
+</head>
+<body data-gr-c-s-loaded="true">
+
+<div class="ui main text container">
+  <h1 class="ui header">How was Harvey?</h1>
+  <p>Tweets will tell!</p>
+</div>
+
+
+<div class="ui borderless main menu">
+  <div class="ui text container">
+    <div href="#" class="header item">
+      <img class="logo" src="./res/logo.png">
+      How was Harvey?
+    </div>
+    <a href="#" class="item">Features</a>
+    <a href="#" class="item">Usage</a>
+    <a href="#" class="item">Authors</a>
+  </div>
+</div><div class="ui borderless main menu placeholder" style="display: none;">
+  <div class="ui text container">
+    <div href="#" class="header item">
+      <img class="logo" src="./res/logo.png">
+      How was Harvey?
+    </div>
+    <a href="#" class="item">Features</a>
+    <a href="#" class="item">Usage</a>
+    <a href="#" class="item">Authors</a>
+  </div>
+</div>
+
+<div class="ui text container">
+  <p>How was Harvey? We try to analyze the reactions, sentiments and effects of hurricane Harvey on people from around the world. </p>
+</div>
+
+<div class="ui vertical footer segment">
+  <div class="ui center aligned container">
+    <div class="ui inverted section divider"></div>
+    <img src="./res/logo.png" class="ui centered mini image">
+    <div class="ui horizontal small divided link list">
+      <a class="item" href="#">How was Harvey?</a>
+    </div>
+  </div>
+</div>
+
+</body></html>

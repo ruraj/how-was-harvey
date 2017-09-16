@@ -1,0 +1,23 @@
+{
+  "name": "How was Harvey?",
+  "homepage": "how-was-harvey.github.io",
+  "authors": [
+    "Ruraj Joshi <rurajjoshi@gmail.com>",
+    "Ryan Brannan <ryan.brannan@ttu.edu>"
+  ],
+  "description": "Tweets will tell!",
+  "main": "index.html",
+  "keywords": [
+    "harvey",
+    "tweet",
+    "analysis"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
