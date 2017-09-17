@@ -17,28 +17,10 @@ while(numResults <= 0):
 	print("Enter the max number of tweets to return: ")
 	numResults = int(raw_input())
 	
-searchKeywords = []
-searchKeywords.append("rescue")
-searchKeywords.append("help")
-searchKeywords.append("save")
-searchKeywords.append("flood")
-searchKeywords.append("water")
-searchKeywords.append("storm")
-searchKeywords.append("rain")
-searchKeywords.append("boat")
-searchKeywords.append("harvey")
-searchKeywords.append("houston")
-print(searchKeywords)
+for tweet in tweepy.Cursor(api.search, q="#harvey (help OR rescue) boat", since="2017-08-26").items(numResults):
+  print tweet.created_at, tweet.user.name, "(", tweet.user.screen_name, ")" , tweet.text
 
-query = ''
-for keyword in searchKeywords:
-	query = query + keyword + " "
-	
-print(query)
+#search_results = api.search(q="#harvey (help OR rescue) boat", count=numResults)
 
-search_results = api.search(q="rescue OR help OR save OR flood OR water OR storm", count=numResults)
-#startDate = datetime.datetime(2017, 8, 26, 0, 0, 0)
-#endDate = datetime.datetime(2017, 8, 26, 23, 59, 59)
-
-for tweet in search_results:
-	print(tweet)
+#for tweet in search_results:
+#	print(tweet)
