@@ -26,6 +26,7 @@
 <link rel="stylesheet" type="text/css" href="./res/dropdown.css">
 <link rel="stylesheet" type="text/css" href="./res/icon.css">
 <link rel="stylesheet" type="text/css" href="./res/transition.css">
+<link rel="stylesheet" type="text/css" href="./res/label.min.css">
 
 <script src="./res/jquery.min.js"></script>
 <script src="./res/transition.js"></script>
@@ -120,7 +121,7 @@ body {
       <img class="logo" src="./res/logo.png">
       How was Harvey?
     </div>
-    <a href="features.html" class="item">Features</a>
+    <a href="#" class="item">Features</a>
     <a href="usage.html" class="item">Usage</a>
     <a href="authors.html" class="item">Authors</a>
   </div>
@@ -130,16 +131,50 @@ body {
       <img class="logo" src="./res/logo.png">
       How was Harvey?
     </div>
-    <a href="features.html" class="item">Features</a>
+    <a href="#" class="item">Features</a>
     <a href="usage.html" class="item">Usage</a>
     <a href="authors.html" class="item">Authors</a>
   </div>
 </div>
 
 <div class="ui text container">
-  <p>How was Harvey? We try to analyze the reactions, sentiments and effects of hurricane Harvey on people from around the world. </p>
-  <p>We use <a href="www.tweepy.org">Tweepy Python library</a> to access tweets. It allows us to filter the tweets by created date, terms, and also let's us control the number of tweets to pull. So far, we have used this library to obtain all tweets related to hurricane Harvey starting from August 26th, 2017 and present them in a human readable form.</p>
-  <p>The next step is to analyze similarity between the tweets and what their sentiment is. For this, we will be implementing Dice's Coefficient algorithm which a similarity ranking algorithm that compares adjacent character pairs. This allows us to calculate similarity disregarding word order, special characters and also language.</p>
+  <p>Latent Dirichlen Allocation</p>
+  <p>We used LDA on the Hurricane Harvey dataset to gain some insight into possible different topics that people might have been talking about in their tweets.</p>
+  <p>Several combinations of parameters were used and we also tried running this with the entire dataset of 400,000 tweets but this ended up being too computationally expensive. So for analyzing the tweets, we used these base values for parameters that allowed us to achieve manageable results:</p>
+  <ul>
+    <li>Tweets: 8400</li>
+    <li>Topics: 3</li>
+    <li>Passes: 15</li>
+  </ul>
+  <p>We obtained the following probabilities of words for each of the three topics:</p>
+  <p><pre>{'hurricane': 0.081053474291981384, 'texas': 0.03313812350259842, 'brace': 0.0079740160813740676, 'harvey': 0.079638605928521677, 'coast': 0.013564058314238601, 'storm': 0.020807673328960614, 'u': 0.012443367555891613, 'live': 0.0077557197685153307, 'update': 0.0068445772494651084, 'via': 0.0082355909026400574}</pre></p>
+  <p><pre>{'hurricane': 0.043982462326266278, 'texas': 0.023080538058119552, 'monitoring': 0.010112793403141028, 'harvey': 0.046509057340578835, 'edward': 0.0098661032420714716, 'hurricaneharvey': 0.03180291290518332, 'louisianagov': 0.0097082555950064407, 'closely': 0.0099897328315519812, 'w': 0.011442246373321785, 'govabbott': 0.010081072657037374}</pre></p>
+  <p><pre>{'hurricane': 0.035150224243542819, 'safe': 0.018357513386240396, 'stay': 0.013284512168742511, 'prayer': 0.0070189543566388157, 'harvey': 0.033838296175933681, 'texas': 0.013242042357350516, 'hurricaneharvey': 0.062994802809724429, 'everyone': 0.0071391871928821911, 'please': 0.0066783264553835417, 'path': 0.011307902206387582}</pre></p>
+  <br/>
+  <p>But this is quite difficult and un-natural to describe so let's use the following generated wordclouds to analyze our results.</p>
+  <div class="ui medium images">
+    <div class="ui fluid image">
+      <div class="ui blue ribbon label">
+        <i class="star icon"></i> Topic 0
+      </div>
+      <img src="./res/topic0.png"></img>
+    </div>
+    <div class="ui fluid image">
+      <div class="ui blue ribbon label">
+        <i class="star icon"></i> Topic 1
+      </div>
+      <img src="./res/topic1.png"></img>
+    </div>
+    <div class="ui fluid image">
+      <div class="ui blue ribbon label">
+        <i class="star icon"></i> Topic 2
+      </div>
+      <img src="./res/topic2.png"></img>
+    </div>
+  </div>
+  <p><b>Topic 1</b> looks like it could be related to news about where the hurricane currently is- let's call it "News" and these tweets are most likely from news/weather agencies.</p>
+  <p><b>Topic 2</b> seems to be from the common people who are affected by the hurricane. These looks like calls for help and could also be from people active in relief efforts. Let's call this "Relief Effort"</p>
+  <p><b>Topic 0</b> is a bit more vague and seems to indicate that there may actually only two distinct topics in this data set.</p>
 </div>
 
 <div class="ui vertical footer segment">
